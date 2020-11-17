@@ -23,6 +23,20 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 -}
 
-module EasyArgs where
+module EasyArgs (Arg (..)) where
+
+-- | Defines an argument type
+data Arg
+  = Dash
+  -- ^ Represents a single dash i.e.: @"-"@
+  | DoubleDash
+  -- ^ Represents a double dash i.e.: @"--"@
+  | Flag Char
+  -- ^ Represents a single character flag, e.g.: @"-a"@
+  | Tag String
+  -- ^ Represents a multi-character tag, e.g.: @"--foo"@
+  | ArgText String
+  -- ^ Represents a non-dashed argument, e.g.: @"foo"@
+  deriving (Eq, Show)
 
 --jl
