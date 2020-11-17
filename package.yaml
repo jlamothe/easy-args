@@ -1,0 +1,41 @@
+name:                easy-args
+version:             0.0.0
+github:              "jlamothe/easy-args"
+license:             LGPL-3
+author:              "Jonathan Lamothe"
+maintainer:          "jonathan@jlamothe.net"
+copyright:           "Jonathan Lamothe"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+synopsis:            Parses command line arguments
+category:            Utilities
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/jlamothe/easy-args#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- hspec >= 2.7.4 && < 2.8
+
+ghc-options:
+- -Wall
+
+library:
+  source-dirs: src
+
+tests:
+  easy-args-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - easy-args
