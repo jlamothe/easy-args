@@ -1,7 +1,7 @@
 {-|
 
 Module      : EasyArgs
-Description : Main module for the easy-args library
+Description : Parses arguments
 Copyright   : (C) Jonathan Lamothe
 License     : LGPL-3
 Maintainer  : jonathan@jlamothe.net
@@ -23,7 +23,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 -}
 
-module EasyArgs (Arg (..)) where
+module EasyArgs (Arg (..), parseArg) where
 
 -- | Defines an argument type
 data Arg
@@ -38,5 +38,13 @@ data Arg
   | ArgText String
   -- ^ Represents a non-dashed argument, e.g.: @"foo"@
   deriving (Eq, Show)
+
+-- | Parses a single argument string to a list of 'Arg's
+parseArg :: String -> [Arg]
+parseArg "-"           = [Dash]
+parseArg "--"          = [DoubleDash]
+parseArg ('-':'-':str) = [Tag str]
+parseArg ('-':str)     = map Flag str
+parseArg str           = [ArgText str]
 
 --jl

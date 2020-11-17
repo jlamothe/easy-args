@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3966b874400361909190b9344cd5564123abb0a5efe8f8df219504bb71b62a11
+-- hash: 09e9bf0e60f5e9aeaf6ace7354a7b61f9c85b9cec7a48a709a14d980123c5675
 
 name:           easy-args
 version:        0.0.0
@@ -44,6 +44,7 @@ test-suite easy-args-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      ParseArgSpec
       Paths_easy_args
   hs-source-dirs:
       test
