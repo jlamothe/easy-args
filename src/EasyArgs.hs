@@ -23,7 +23,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 -}
 
-module EasyArgs (Arg (..), parseArg) where
+module EasyArgs (Arg (..), parseArg, parseArgs) where
 
 -- | Defines an argument type
 data Arg
@@ -46,5 +46,9 @@ parseArg "--"          = [DoubleDash]
 parseArg ('-':'-':str) = [Tag str]
 parseArg ('-':str)     = map Flag str
 parseArg str           = [ArgText str]
+
+-- | Parses a list of argument strings to a list of 'Arg's
+parseArgs :: [String] -> [Arg]
+parseArgs = concatMap parseArg
 
 --jl

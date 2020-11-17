@@ -18,16 +18,33 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 -}
 
-module Main (main) where
+module ParseArgsSpec (spec) where
 
-import Test.Hspec (hspec)
+import Test.Hspec (Spec, describe, it, shouldBe)
 
-import qualified ParseArgSpec as ParseArg
-import qualified ParseArgsSpec as ParseArgs
+import EasyArgs
 
-main :: IO ()
-main = hspec $ do
-  ParseArg.spec
-  ParseArgs.spec
+spec :: Spec
+spec = describe "parseArgs" $ let
+  input =
+    [ "-abc"
+    , "--foo"
+    , "-"
+    , "--"
+    , "foo"
+    ]
+
+  expected =
+    [ Flag 'a'
+    , Flag 'b'
+    , Flag 'c'
+    , Tag "foo"
+    , Dash
+    , DoubleDash
+    , ArgText "foo"
+    ]
+
+  in it ("should be " ++ show expected) $
+    parseArgs input `shouldBe` expected
 
 --jl
