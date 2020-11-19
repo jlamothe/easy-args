@@ -1,3 +1,5 @@
 # Changelog for easy-args
 
-## Unreleased changes
+## current
+
+- added Travis CI config
