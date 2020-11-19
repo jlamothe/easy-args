@@ -3,3 +3,4 @@
 ## current
 
 - added Travis CI config
+- fixed copyright notice
