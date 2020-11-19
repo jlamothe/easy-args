@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 2f27f919d93a07834e43bb878ff0bf066841ccfc4b57d7069ec9a970d88f21e2
+-- hash: 692cd168a4767a87797c9f962628932734580ff00c56ea467f664cba05d9b4db
 
 name:           easy-args
-version:        0.1.0
+version:        0.1.0.1
 synopsis:       Parses command line arguments
 description:    Please see the README on GitHub at <https://github.com/jlamothe/easy-args#readme>
 category:       Utilities
